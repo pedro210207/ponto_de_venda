@@ -30,14 +30,11 @@ Este projeto simula um pequeno sistema comercial com funcionalidades de cadastro
 
 ## Estrutura do Projeto
 
-ponto_de_venda/
-│
-├── database.py # Conexão com o banco de dados
-├── crud.py # Operações de cadastro, listagem e exclusão
-├── analytics.py # Análises e métricas com Pandas
-├── main.py # Menu principal do sistema
-├── database.sql # Script de criação do banco
-└── README.md
+- `database.py` → Conexão com o banco de dados
+- `crud.py` → Operações de cadastro, listagem e exclusão
+- `analytics.py` → Métricas e análises com Pandas
+- `main.py` → Menu principal
+- `database.sql` → Script de criação do banco
 
 ---
 
