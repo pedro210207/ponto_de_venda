@@ -59,3 +59,8 @@ Editar o arquivo `database.py` com seu usuário, senha e porta do MySQL.
 ```bash
 python main.py
 ```
+## Dashboard de Vendas (Power BI)
+
+Neste projeto, além do backend em Python e da base de dados MySQL, desenvolvi um painel de gestão no Power BI ligado diretamente à base de dados para analisar métricas de faturação e volume de vendas.
+
+![Dashboard do Power BI](dashboard_powerbi.png)
