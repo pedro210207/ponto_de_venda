@@ -1,4 +1,4 @@
-# Sistema de Ponto de Venda (PDV) - Python + MySQL
+# Sistema de Ponto de Venda (PDV) - Python + MySQL + PowerBI
 
 Sistema de Ponto de Venda desenvolvido em Python com integração ao MySQL para registro e análise de vendas.
 
@@ -25,6 +25,7 @@ Este projeto simula um pequeno sistema comercial com funcionalidades de cadastro
 - Python
 - MySQL
 - Pandas
+- PowerBI
 
 ---
 
