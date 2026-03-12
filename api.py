@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
-import crud 
+import crud
 
 app = FastAPI()
 
@@ -15,14 +15,14 @@ def cumprimentar():
 
 @app.get("/vendas")
 def listar_todas_vendas():
-    vendas = crud.obter_vendas_api() 
+    vendas = crud.obter_vendas_api()
     return {"total_vendas": len(vendas), "dados": vendas}
 
 @app.post("/vendas")
 def cadastrar_nova_venda(nova_venda: Venda):
     resultado = crud.cadastrar_venda_api(
-        nova_venda.produto, 
-        nova_venda.quantidade, 
+        nova_venda.produto,
+        nova_venda.quantidade,
         nova_venda.valor
     )
     return resultado

@@ -178,7 +178,7 @@ def atualizar_venda_api(id_venda, produto, quantidade, valor):
         total = quantidade * valor
 
         sql = """
-            UPDATE vendas 
+            UPDATE vendas
             SET produto = %s, quantidade = %s, valor = %s, total = %s
             WHERE id = %s
         """
