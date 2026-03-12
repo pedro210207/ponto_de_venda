@@ -32,6 +32,7 @@ Este projeto simula um pequeno sistema comercial com funcionalidades de cadastro
 * `main.py` → Menu principal (Modo Terminal)
 * `api.py` → Rotas da API RESTful (Modo Web)
 * `database.sql` → Script de criação do banco
+* `gerar_dados.py` → Script para popular o banco de dados com 500+ registros realistas
 
 ## Como rodar o projeto
 
