@@ -98,3 +98,101 @@ def remover_venda():
     finally:
         cursor.close()
         conexao.close()
+
+def obter_vendas_api():
+    conexao = conectar()
+    if not conexao:
+        return []
+
+    cursor = conexao.cursor(dictionary=True)
+
+    try:
+        cursor.execute("SELECT * FROM vendas ORDER BY data_venda DESC")
+        vendas = cursor.fetchall()
+        return vendas
+
+    except mysql.connector.Error as erro:
+        print("Erro ao buscar para a API:", erro)
+        return []
+    finally:
+        cursor.close()
+        conexao.close()
+
+def cadastrar_venda_api(produto, quantidade, valor):
+    conexao = conectar()
+    if not conexao:
+        return {"erro": "Não foi possível conectar ao banco de dados."}
+
+    cursor = conexao.cursor()
+
+    try:
+        total = quantidade * valor
+
+        sql = """
+            INSERT INTO vendas (produto, quantidade, valor, total)
+            VALUES (%s, %s, %s, %s)
+        """
+        cursor.execute(sql, (produto, quantidade, valor, total))
+        conexao.commit()
+
+        return {"mensagem": "Venda cadastrada com sucesso!", "produto": produto, "total_venda": total}
+
+    except mysql.connector.Error as erro:
+        print("Erro ao cadastrar via API:", erro)
+        return {"erro": "Falha ao salvar no banco de dados."}
+    finally:
+        cursor.close()
+        conexao.close()
+
+def remover_venda_api(id_venda):
+    conexao = conectar()
+    if not conexao:
+        return {"erro": "Sem conexão com o banco de dados."}
+
+    cursor = conexao.cursor()
+
+    try:
+        cursor.execute("DELETE FROM vendas WHERE id=%s", (id_venda,))
+        conexao.commit()
+
+        if cursor.rowcount > 0:
+            return {"mensagem": f"Venda ID {id_venda} removida com sucesso!"}
+        else:
+            return {"erro": "ID não encontrado."}
+
+    except mysql.connector.Error as erro:
+        print("Erro ao remover via API:", erro)
+        return {"erro": "Falha ao remover no banco de dados."}
+    finally:
+        cursor.close()
+        conexao.close()
+
+def atualizar_venda_api(id_venda, produto, quantidade, valor):
+    conexao = conectar()
+    if not conexao:
+        return {"erro": "Sem conexão com o banco de dados."}
+
+    cursor = conexao.cursor()
+
+    try:
+        total = quantidade * valor
+
+        sql = """
+            UPDATE vendas 
+            SET produto = %s, quantidade = %s, valor = %s, total = %s
+            WHERE id = %s
+        """
+        cursor.execute(sql, (produto, quantidade, valor, total, id_venda))
+        conexao.commit()
+
+        if cursor.rowcount > 0:
+            return {"mensagem": f"Venda ID {id_venda} atualizada com sucesso!", "novo_total": total}
+        else:
+            return {"erro": "ID não encontrado para atualizar."}
+
+    except mysql.connector.Error as erro:
+        print("Erro ao atualizar via API:", erro)
+        return {"erro": "Falha ao atualizar no banco de dados."}
+    finally:
+        cursor.close()
+        conexao.close()
