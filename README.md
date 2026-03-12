@@ -65,7 +65,7 @@ uvicorn api:app --reload
 
 *Após rodar, acesse no seu navegador:* `http://127.0.0.1:8000/docs`
 
-![FastAPI na WEB](fastAPI.png).
+![FastAPI na WEB](fastAPI.png)
 
 ## Dashboard de Vendas (Power BI)
 
