@@ -65,6 +65,8 @@ uvicorn api:app --reload
 
 *Após rodar, acesse no seu navegador:* `http://127.0.0.1:8000/docs`
 
+![FastAPI na WEB](fastAPI.png).
+
 ## Dashboard de Vendas (Power BI)
 
 Neste projeto, além do backend em Python e da base de dados MySQL, desenvolvi um painel de gestão no Power BI ligado diretamente à base de dados para analisar métricas de faturação e volume de vendas.
