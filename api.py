@@ -10,36 +10,24 @@ class Venda(BaseModel):
     valor: float
 
 @app.get("/")
-def cumprimentar():
-    return {"mensagem": "olá, essa é a minha primeira api"}
+def home():
+    return {"mensagem": "API Ponto de Venda ativa"}
 
 @app.get("/vendas")
-def listar_todas_vendas():
+def listar():
     vendas = crud.obter_vendas_api()
-    return {"total_vendas": len(vendas), "dados": vendas}
+    return {"total": len(vendas), "dados": vendas}
 
 @app.post("/vendas")
-def cadastrar_nova_venda(nova_venda: Venda):
-    resultado = crud.cadastrar_venda_api(
-        nova_venda.produto,
-        nova_venda.quantidade,
-        nova_venda.valor
-    )
-    return resultado
+def cadastrar(venda: Venda):
+    return crud.cadastrar_venda_api(venda.produto, venda.quantidade, venda.valor)
 
 @app.delete("/vendas/{id_venda}")
-def deletar_venda(id_venda: int):
-    resultado = crud.remover_venda_api(id_venda)
-    return resultado
+def deletar(id_venda: int):
+    return crud.remover_venda_api(id_venda)
 
 @app.put("/vendas/{id_venda}")
-def atualizar_venda(id_venda: int, venda_atualizada: Venda):
-    resultado = crud.atualizar_venda_api(
-        id_venda,
-        venda_atualizada.produto,
-        venda_atualizada.quantidade,
-        venda_atualizada.valor
-    )
-    return resultado
+def atualizar(id_venda: int, venda: Venda):
+    return crud.atualizar_venda_api(id_venda, venda.produto, venda.quantidade, venda.valor)
 
 #comando pra rodar a api: uvicorn api:app --reload
