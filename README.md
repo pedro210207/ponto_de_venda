@@ -1,9 +1,9 @@
-# Ponto de Venda - Python + MySQL + PowerBI + FastAPI
+# 🛒 Ponto de Venda - Python + MySQL + PowerBI + FastAPI
 
 Sistema de Ponto de Venda desenvolvido em Python com integração ao MySQL para registro e análise de vendas.
 Este projeto simula um pequeno sistema comercial com funcionalidades de cadastro, listagem, remoção, análise de vendas, processamento de dados com Pandas e agora conta com uma **API RESTful**.
 
-## Funcionalidades
+## 🚀 Funcionalidades
 
 * Cadastro, listagem, atualização e remoção de vendas (CRUD completo)
 * Interface via Terminal e via Web (API)
@@ -14,7 +14,7 @@ Este projeto simula um pequeno sistema comercial com funcionalidades de cadastro
   * Produto mais vendido
   * Vendas agrupadas por data
 
-## Tecnologias Utilizadas
+## 🛠️ Tecnologias Utilizadas
 
 * **Python** (Linguagem principal)
 * **MySQL** (Banco de dados relacional)
@@ -24,7 +24,7 @@ Este projeto simula um pequeno sistema comercial com funcionalidades de cadastro
 * **Uvicorn** (Servidor Web)
 * **Pydantic** (Validação de dados via JSON)
 
-## Estrutura do Projeto
+## 📂 Estrutura do Projeto
 
 * `database.py` → Conexão com o banco de dados
 * `crud.py` → Operações de banco de dados (Terminal e API)
@@ -34,7 +34,7 @@ Este projeto simula um pequeno sistema comercial com funcionalidades de cadastro
 * `database.sql` → Script de criação do banco
 * `gerar_dados.py` → Script para popular o banco de dados com 500+ registros realistas
 
-## Como rodar o projeto
+## ⚙️ Como rodar o projeto
 
 ### 1. Instalar dependências
 
@@ -68,7 +68,7 @@ uvicorn api:app --reload
 
 ![FastAPI na WEB](fastAPI.png)
 
-## Dashboard de Vendas (Power BI)
+## 📈 Dashboard de Vendas (Power BI)
 
 Neste projeto, além do backend em Python e da base de dados MySQL, desenvolvi um painel de gestão no Power BI ligado diretamente à base de dados para analisar métricas de faturação e volume de vendas.
 
