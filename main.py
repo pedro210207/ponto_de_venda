@@ -7,7 +7,8 @@ def menu():
         print("1 - Cadastrar venda")
         print("2 - Listar vendas")
         print("3 - Remover venda")
-        print("4 - Resumo de vendas")
+        print("4 - Atualizar venda")
+        print("5 - Resumo de vendas")
         print("0 - Sair")
 
         op = input("Opção: ").strip()
@@ -19,6 +20,8 @@ def menu():
         elif op == "3":
             remover_venda()
         elif op == "4":
+            atualizar_venda()
+        elif op == "5":
             resumo_vendas()
         elif op == "0":
             print("Saindo...")

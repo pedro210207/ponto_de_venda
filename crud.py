@@ -70,6 +70,38 @@ def remover_venda():
         cursor.close()
         conexao.close()
 
+def atualizar_venda():
+    conexao = conectar()
+    if not conexao:
+        return
+
+    cursor = conexao.cursor()
+    try:
+        id_venda = int(input("ID da venda que deseja atualizar: "))
+
+        print("--- Digite os novos dados ---")
+        produto = input("Novo Produto: ").strip().upper()
+        quantidade = int(input("Nova Quantidade: "))
+        valor = float(input("Novo Valor unitário: "))
+        total = quantidade * valor
+
+        sql = "UPDATE vendas SET produto=%s, quantidade=%s, valor=%s, total=%s WHERE id=%s"
+        cursor.execute(sql, (produto, quantidade, valor, total, id_venda))
+        conexao.commit()
+
+        if cursor.rowcount > 0:
+            print("Venda atualizada com sucesso!")
+        else:
+            print("ID não encontrado. Nenhuma venda foi atualizada.")
+
+    except ValueError:
+        print("Erro: ID, quantidade e valor devem ser números.")
+    except mysql.connector.Error as erro:
+        print("Erro ao atualizar:", erro)
+    finally:
+        cursor.close()
+        conexao.close()
+
 def obter_vendas_api():
     conexao = conectar()
     if not conexao: return []
