@@ -1,4 +1,4 @@
-from crud import cadastrar_venda, listar_vendas, remover_venda
+from crud import cadastrar_venda, listar_vendas, remover_venda, atualizar_venda
 from analytics import resumo_vendas
 
 def menu():
