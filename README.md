@@ -1,60 +1,87 @@
-# Ponto de Venda - Python + MySQL + PowerBI + FastAPI
+<div align="center">
 
-Sistema de Ponto de Venda desenvolvido em Python com integração ao MySQL para registro e análise de vendas.
-Este projeto simula um pequeno sistema comercial com funcionalidades de cadastro, listagem, remoção, análise de vendas, processamento de dados com Pandas e agora conta com uma **API RESTful**.
+# 🛒 Ponto de Venda | Full Cycle Data & API
 
-## 🚀 Funcionalidades
+[![Python](https://img.shields.io/badge/Python-3.x-blue?style=for-the-badge&logo=python)](https://www.python.org/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-Framework-009688?style=for-the-badge&logo=fastapi)](https://fastapi.tiangolo.com/)
+[![MySQL](https://img.shields.io/badge/MySQL-Database-orange?style=for-the-badge&logo=mysql)](https://www.mysql.com/)
+[![Pandas](https://img.shields.io/badge/Pandas-Analytics-150458?style=for-the-badge&logo=pandas)](https://pandas.pydata.org/)
+[![Power BI](https://img.shields.io/badge/PowerBI-Dashboard-yellow?style=for-the-badge&logo=powerbi)](https://powerbi.microsoft.com/)
 
-* Cadastro, listagem, atualização e remoção de vendas (CRUD completo)
-* Interface via Terminal e via Web (API)
-* Cálculo automático do valor total (quantidade × valor)
-* Resumo analítico com:
-  * Total geral vendido
-  * Ticket médio
-  * Produto mais vendido
-  * Vendas agrupadas por data
+---
 
-## 🛠️ Tecnologias Utilizadas
+## 📈 Dashboard de Gestão Comercial
 
-* **Python** (Linguagem principal)
-* **MySQL** (Banco de dados relacional)
-* **Pandas** (Análise e manipulação de dados)
-* **PowerBI** (Dashboard e visualização)
-* **FastAPI** (Desenvolvimento da API RESTful)
-* **Uvicorn** (Servidor Web)
-* **Pydantic** (Validação de dados via JSON)
+![Dashboard de Vendas](Dashboard_PowerBI.png)
+*(Interface desenvolvida para análise de faturamento real, ticket médio e performance de estoque via DirectQuery/Import no MySQL).*
 
-## 📂 Estrutura do Projeto
+</div>
 
-* `database.py` → Conexão com o banco de dados
-* `crud.py` → Operações de banco de dados (Terminal e API)
-* `analytics.py` → Métricas e análises com Pandas
-* `main.py` → Menu principal (Modo Terminal)
-* `api.py` → Rotas da API RESTful (Modo Web)
-* `database.sql` → Script de criação do banco
-* `gerar_dados.py` → Script para popular o banco de dados com 500+ registros realistas
+---
 
-## ⚙️ Como rodar o projeto
+## 💡 Sobre o Projeto
+
+<div align="justify">
+
+Este é um ecossistema comercial completo que simula a operação de um Ponto de Venda (PDV) moderno. O projeto foi desenvolvido com uma **arquitetura modular**, separando as responsabilidades de banco de dados, lógica de negócio (CRUD), análise de dados e interface de API.
+
+O sistema oferece três frentes de atuação:
+1. **Interface CLI:** Gestão operacional direta via terminal para controle rápido de estoque e vendas.
+2. **Camada de API:** Backend em FastAPI com documentação Swagger, permitindo integrações externas e escalabilidade.
+3. **Business Intelligence:** Storytelling e análise de métricas no Power BI para suporte à decisão gerencial.
+
+</div>
+
+---
+
+## 📂 Estrutura Modular do Sistema
+
+<div align="justify">
+
+* **`database.py` & `database.sql`**: Camada de persistência. Configuração e estrutura do banco MySQL.
+* **`crud.py`**: Lógica principal de persistência (Create, Read, Update, Delete) consumida tanto pelo terminal quanto pela API.
+* **`api.py`**: Exposição dos serviços para a web via FastAPI e validação de dados com Pydantic.
+* **`analytics.py`**: Engine de Business Intelligence. Processamento de métricas e BI utilizando Pandas.
+* **`gerar_dados.py`**: Script de automação para criação de massa de dados realista (500+ registros).
+* **`main.py`**: Ponto de entrada (Entry Point) para operação via terminal.
+
+</div>
+
+---
+
+## ⚙️ Como Executar
 
 ### 1. Instalar dependências
+<div align="justify">
 
 ```bash
 pip install mysql-connector-python pandas fastapi uvicorn pydantic
 ```
 
+</div>
+
 ### 2. Criar o banco de dados
+<div align="justify">
 
 Executar o arquivo `database.sql` no seu servidor MySQL.
 
+</div>
+
 ### 3. Configurar acesso ao banco
+<div align="justify">
 
 Editar o arquivo `database.py` com seu usuário, senha e porta do MySQL.
 
+</div>
+
 ### 4. Executar o sistema no Terminal (Tradicional)
+<div align="justify">
 
 ```bash
 python main.py
 ```
+
+</div>
 
 ### 5. Executar a API Web (FastAPI)
 
@@ -66,10 +93,20 @@ uvicorn api:app --reload
 
 *Após rodar, acesse no seu navegador:* `http://127.0.0.1:8000/docs`
 
-![FastAPI na WEB](fastAPI.png)
+---
 
-## 📈 Dashboard de Vendas (Power BI)
+## 🖥️ Preview da API (Swagger UI)
 
-Neste projeto, além do backend em Python e da base de dados MySQL, desenvolvi um painel de gestão no Power BI ligado diretamente à base de dados para analisar métricas de faturação e volume de vendas.
+<div align="center">
 
-![Dashboard do Power BI](dashboard_powerBI.png)
+![FastAPI Preview](fastAPI.png)
+
+</div>
+
+---
+
+<div align="center">
+
+🚀 **Desenvolvido por [Pedro Oliveira Sampaio](https://www.linkedin.com/in/pedro-oliveira-sampaio-0b5469387/)**
+
+</div>
